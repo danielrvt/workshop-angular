@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular
+ angular
   .module('session1App', [
     'ngAnimate',
     'ngCookies',
@@ -31,3 +31,12 @@ angular
         redirectTo: '/'
       });
   });
+
+/*
+angular.module("session1App")
+    .controller("HelloCtrl", function() {
+        alert("asdf");    
+    })
+    */
+
+function HelloCtrl() {alert("coño"); }

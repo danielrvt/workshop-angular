@@ -1,3 +1,4 @@
+<!--
 <div class="jumbotron">
   <h1>'Allo, 'Allo!</h1>
   <p class="lead">
@@ -6,7 +7,9 @@
   </p>
   <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
 </div>
+-->
 
+<!--
 <div class="row marketing">
   <h4>HTML5 Boilerplate</h4>
   <p>
@@ -20,4 +23,25 @@
 
   <h4>Karma</h4>
   <p>Spectacular Test Runner for JavaScript.</p>
+</div>
+-->
+
+<div class="jumbotron" ng-controller="MainCtrl"> 
+    
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="instrument in instruments">
+            <div class="row">
+                <div class="col-sm-6 text-left">
+                    <div class="row">
+                        <div class="col-sm-12 text-left"><b>{{instrument.name}}</b></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 text-left">{{instrument.number | limitTo: -5}}</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 text-left vertical-align:"> <b>{{instrument.balance | currency}}</b></div>
+            </div>
+        </li>
+    </ul>
+
 </div>
