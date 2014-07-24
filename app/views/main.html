@@ -36,10 +36,11 @@
                         <div class="col-sm-12 text-left"><b>{{instrument.name}}</b></div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12 text-left">{{instrument.number | limitTo: -5}}</div>
+                        <div class="col-sm-6 text-left">{{instrument.number | limitTo: -5}}</div>
                     </div>
                 </div>
-                <div class="col-sm-6 text-left vertical-align:"> <b>{{instrument.balance | currency}}</b></div>
+                <div class="col-sm-3 text-left"> <b>{{instrument.balance | currency}}</b></div>
+                <div class="col-sm-3 text-left"> Img </div>
             </div>
         </li>
     </ul>
