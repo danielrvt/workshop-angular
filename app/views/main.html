@@ -1,48 +1,38 @@
-<!--
+<div class="row">
+    <select ng-model="orderProp">
+        <option value="name">Nombre</option>
+        <option value="number">Saldo</option>
+    </select>
+</div>
+
 <div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
--->
-
-<!--
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>
--->
-
-<div class="jumbotron" ng-controller="MainCtrl"> 
-    
     <ul class="list-group">
-        <li class="list-group-item" ng-repeat="instrument in instruments">
-            <div class="row">
-                <div class="col-sm-6 text-left">
-                    <div class="row">
-                        <div class="col-sm-12 text-left"><b>{{instrument.name}}</b></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6 text-left">{{instrument.number | limitTo: -5}}</div>
-                    </div>
-                </div>
-                <div class="col-sm-3 text-left"> <b>{{instrument.balance | currency}}</b></div>
-                <div class="col-sm-3 text-left"> Img </div>
-            </div>
-        </li>
+         <div class="col-sm-4 text-left">
+         </div>
+         <a ng-click="order('name')">
+             <div class="col-sm-4 text-left">
+                Nombre
+             </div>
+         </a>
+         <a ng-click="order('balance')">
+            <div class="col-sm-4 text-left">
+                Saldo
+             </div>
+         </a>
     </ul>
-
+  <ul class="list-group">
+    <li class="list-group-item" ng-repeat="instrument in instruments | orderBy:orderProp">
+        <div class="row">
+            <div class="col-sm-4 text-left" ng-switch on="instrument.type">
+                <img ng-src="images/ctahorro.jpg" ng-switch-when="ACC" />
+                <img ng-src="images/tdc.jpg" ng-switch-when="TDC" />
+            </div>
+            <a ng-click="open(instrument.idE)"><div class="col-sm-4 text-left"><b>Nombre:</b>{{instrument.name}}</div></a>
+            <div class="col-sm-4 text-left"><b>Balance:</b>{{instrument.balance | currency}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-4 text-left">{{instrument.number | limitTo:-5}}</div>
+        </div>
+    </li>
+  </ul>
 </div>

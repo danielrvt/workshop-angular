@@ -2,45 +2,68 @@
 
 /**
  * @ngdoc function
- * @name session1App.controller:MainCtrl
+ * @name sesion1App.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the session1App
+ * Controller of the sesion1App
  */
-angular.module('session1App')
-  .controller('MainCtrl', function ($scope) {
+angular.module('sesion1App')
+  .controller('MainCtrl', function ($scope, $modal, $log) {
 
-    $scope.instruments = [
-        {
-            "name": "Cuenta Corriente Máxima",
-            "number": "890887789898798798",
-            "balance": 9.99,
-            "type": "ACC"
-        },
-        {
-            "name": "Cuenta Corriente",
-            "number": "878237498789788304",
-            "balance": 3999.99,
-            "type": "ACC"
-        },
-        {
-            "name": "Cuenta Ahorros",
-            "number": "234234234333334553",
-            "balance": 25989.9834444444,
-            "type": "ACC"
-        },
-        {
-            "name": "Tarjeta Platinum Máxima",
-            "number": "878237234333345234",
-            "balance": 0.0,
-            "type": "CC"
-        },
-        {
-            "name": "Tarjeta Dorada",
-            "number": "8782324344454233",
-            "balance": 9,
-            "type": "CC"
-        }
-    ]
+  	$scope.instruments=[
+		{
+			"name": "CTM",
+			"number": "12123456789098765432",
+			"balance": "6.66",
+			"type": "ACC",
+			"idE": "TPA5748"
+		},
+		{
+			"name": "CC",
+			"number": "98765432145678976543",
+			"balance": "5555.76",
+			"type": "ACC",
+			"idE": "TPA5749"
+		},
+		{
+			"name": "CA",
+			"number": "88877788998877665544",
+			"balance": "456.7654398712",
+			"type": "TDC",
+			"idE": "PPA8464"
+		},
+		{
+			"name": "CA",
+			"number": "88877788998877665544",
+			"balance": "456.7654398712",
+			"type": "TDC",
+			"idE": "PPA8545"
+		},
+	];
+
+	$scope.orderProp = 'name';
+
+	$scope.order = function (type) {
+  		$scope.orderProp = ""+type;
+  	}
+
+  	$scope.open = function (idE) {
+
+	    var modalInstance = $modal.open({
+	      templateUrl: 'views/myModalContent.html',
+	      controller: "ModalInstanceCtrl",
+	      resolve: {
+	        idE: function () {
+	        	return idE;
+	        }
+	      }
+	    });
+
+	    modalInstance.result.then(function () {
+	      
+	    }, function () {
+	      $log.info('Modal dismissed at: ' + new Date());
+	    });
+  	};
 
   });

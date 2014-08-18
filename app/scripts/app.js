@@ -2,20 +2,21 @@
 
 /**
  * @ngdoc overview
- * @name session1App
+ * @name sesion1App
  * @description
- * # session1App
+ * # sesion1App
  *
  * Main module of the application.
  */
- angular
-  .module('session1App', [
+angular
+  .module('sesion1App', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.bootstrap'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -31,12 +32,3 @@
         redirectTo: '/'
       });
   });
-
-/*
-angular.module("session1App")
-    .controller("HelloCtrl", function() {
-        alert("asdf");    
-    })
-    */
-
-function HelloCtrl() {alert("coño"); }
