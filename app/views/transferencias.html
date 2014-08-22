@@ -1,0 +1,40 @@
+<div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+        Lista de Cuentas:
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu"  aria-labelledby="dropdownMenu1">
+        <li class="list-group-item" ng-model="instrument.balance" ng-click="chkClick(instrument, false)" ng-repeat="instrument in instruments">
+            <a href="">  {{instrument.name}} XXXXXX.XXXXXX.{{instrument.number| limitTo: -5}} {{instrument.balance| currency}}  </a> 
+        </li>
+    </ul>
+    Monto disponible: <input class="form-inline" ng-model="val" disabled >        
+</div>
+
+
+<div  ng-show="selectedInstruments.length > 0" class="jumbotron" > 
+    <form class="form-inline">
+        <input ng-model="query.name" type="text"
+               placeholder="Tipo de cuenta" autofocus>
+        <input ng-model="query.number" type="text"
+               placeholder="Numero de Cuenta" autofocus>
+    </form>
+
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="dep in depositar| filter:query | orderBy: ['name', 'number']" >
+            <div class="row">
+                <div class="col-sm-5 text-left">
+                    <div class="row">
+                        <div class="col-sm-12 text-left"><b>{{dep.name}}</b></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 text-left">XXXXXX.XXXXXX.{{dep.number| limitTo: -5}}</div>
+                    </div>
+                </div>
+                <div class="col-sm-3 text-left"> <b>{{dep.balance| currency}}</b></div>
+                <input  type="text" placeholder="Monto a transferir" ng-model="total" ng-change="change(total)">
+            </div>
+        </li>
+    </ul>
+    <button class="btn btn-primary" type="button" ng-click="transClick()"> Transferir</button>
+</div>

@@ -19,24 +19,20 @@
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
+      .when('/resumen', {
+        templateUrl: 'views/balance.html',
         controller: 'MainCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .when('/transferencias', {
+        templateUrl: 'views/transferencias.html',
+        controller: 'MainCtrl'
       })
       .otherwise({
         redirectTo: '/'
       });
   });
 
-/*
-angular.module("session1App")
-    .controller("HelloCtrl", function() {
-        alert("asdf");    
-    })
-    */
 
-function HelloCtrl() {alert("coño"); }
+
+
+

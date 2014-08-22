@@ -28,7 +28,7 @@
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li><a href="#/resumen">Resumen Fi</a></li>
+          <li><a href="#/resumen">Resumen Fid</a></li>
           <li><a href="#/transferencias">Transferencias</a></li>
           <li><a href="#/balance">Pos. Consolidada</a></li>
         </ul>

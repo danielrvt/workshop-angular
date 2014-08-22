@@ -1,0 +1,21 @@
+
+<div class="jumbotron" ng-controller="MainCtrl"> 
+
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="instrument in instruments">
+            <div class="row">
+                <div class="col-sm-6 text-left">
+                    <div class="row">
+                        <div class="col-sm-12 text-left"><b>{{instrument.name}}</b></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 text-left">XXXXXX.XXXXXX.{{instrument.number | limitTo: -5}}</div>
+                    </div>
+                </div>
+                <div class="col-sm-3 text-left"> <b>{{instrument.balance | currency}}</b></div>
+                <div class="col-sm-3 text-left"> Img </div>
+            </div>
+        </li>
+    </ul>
+
+</div>
